@@ -5,6 +5,13 @@ on: [push]
 jobs:
   first-job:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Print Message
-        run: echo "Hello DevOps 🚀"
+      - name: Step 1 - Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Step 2 - Print Message
+        run: echo "Code aa gaya machine pe!"
+
+      - name: Step 3 - List Files
+        run: ls
