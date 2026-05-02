@@ -1,0 +1,23 @@
+name: Nitin Rijhwani
+company: Fiserv
+city: Pune
+skills:
+  - WMQ
+  - Docker
+  - Git
+experience:
+  total: 11 years
+  current_role: Middleware Engineer
+  current_company: Fiserv
+
+default_env: &default_location
+  city: Pune
+  company: Fiserv
+
+dev_env:
+  <<: *default_location
+  type: Development
+
+prod_env:
+  <<: *default_location
+  type: Production
