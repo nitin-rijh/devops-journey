@@ -1,0 +1,21 @@
+default_port: &mq_port 1414
+
+queuemanagers:
+  - name: QM1
+    host: mq-dev.fiserv.com
+    port: *mq_port
+    channel: DEV.SVRCONN
+    environment: dev
+
+  - name: QM2
+    host: mq-sit.fiserv.com
+    port: *mq_port
+    channel: SIT.SVRCONN
+    environment: sit
+
+  - name: QM3
+    host: mq-uat.fiserv.com
+    port: *mq_port
+    channel: UAT.SVRCONN
+    environment: uat
+
