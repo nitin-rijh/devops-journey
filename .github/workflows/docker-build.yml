@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout karo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Docker build karo
-        run: docker build -t nitin-website ./my-first-docker
+        run: docker build -t nitin-website .
 
       - name: Docker images dekho
         run: docker images
