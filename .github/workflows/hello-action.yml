@@ -1,17 +1,16 @@
-name: My First Action
+name: Mera Pehla Action
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  first-job:
+  hello-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Step 1 - Checkout Code
-        uses: actions/checkout@v3
+      - name: Hello print karo
+        run: echo "Hello Nitin! Action chal gaya!"
 
-      - name: Step 2 - Print Message
-        run: echo "Code aa gaya machine pe!"
-
-      - name: Step 3 - List Files
-        run: ls
+      - name: Date print karo
+        run: date
