@@ -19,3 +19,9 @@ queuemanagers:
     channel: UAT.SVRCONN
     environment: uat
 
+  - name: QM4
+    host: mq-ppd.fiserv.com
+    port: *mq_port
+    channel: PPD.SVRCONN
+    environment: ppd
+
