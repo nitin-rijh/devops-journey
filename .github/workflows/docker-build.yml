@@ -12,8 +12,11 @@ jobs:
       - name: Code checkout karo
         uses: actions/checkout@v4
 
-      - name: Docker build karo
-        run: docker build -t nitin-website .
+      - name: Docker Hub login karo
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Docker images dekho
-        run: docker images
+      - name: Docker build karo
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nitin-website .
+
+      - name: Docker Hub pe push karo
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/nitin-website
