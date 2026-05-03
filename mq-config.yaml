@@ -25,3 +25,9 @@ queuemanagers:
     channel: PPD.SVRCONN
     environment: ppd
 
+  - name: QM5
+    host: mq-prod.fiserv.com
+    port: *mq_port
+    channel: PROD.SVRCONN
+    environment: prod
+
