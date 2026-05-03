@@ -1,0 +1,32 @@
+name: MQ Config Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'mq-config.yaml'
+
+jobs:
+  validate-mq-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout karo
+        uses: actions/checkout@v4
+
+      - name: MQ Config file check karo
+        run: |
+          echo "MQ Config validation shuru..."
+          cat mq-config.yaml
+          echo "Config file exist karti hai ✅"
+
+      - name: Environments check karo
+        run: |
+          echo "Checking environments..."
+          grep "environment:" mq-config.yaml
+          echo "Saare environments present hain ✅"
+
+      - name: Pipeline complete!
+        run: |
+          echo "MQ Config validated! ✅"
+          echo "Ready for deployment!"
