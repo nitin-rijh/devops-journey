@@ -1,0 +1,32 @@
+name: Real CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout karo
+        uses: actions/checkout@v4
+
+      - name: Test karo
+        run: |
+          echo "Tests chal rahe hain..."
+          echo "Test 1 - index.html exist karta hai?"
+          ls index.html
+          echo "Sab tests pass! ✅"
+
+      - name: Docker Hub login
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Docker image build karo
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nitin-website:latest .
+
+      - name: Docker Hub pe push karo
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/nitin-website:latest
+
+      - name: Pipeline complete!
+        run: echo "🎉 Pipeline complete! Image Docker Hub pe hai!"
